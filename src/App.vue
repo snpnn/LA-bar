@@ -32,7 +32,7 @@
     <div class="menu-card menu-title">
         <p>Картофель фри</p>
         <img src="https://main-cdn.sbermegamarket.ru/big2/hlr-system/156/552/268/322/721/29/100048560756b1.png" class="menu-image">
-        <P>Картофель, соль, масло</P>
+        <P>Картофель соль, масло</P>
     </div>
 
     <div class="menu-card menu-title">
