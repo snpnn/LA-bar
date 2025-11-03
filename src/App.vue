@@ -1,4 +1,13 @@
 <script setup>
+
+// const text = "Самый обычный текст"
+// const chislo = 1 + 1
+const object = {
+    title: "Картошка фри",
+    price: 1000
+} 
+
+
 </script>
 
 <template>
@@ -7,6 +16,9 @@
 
         <div class="title-container">
             <h1 class="title">LAbar</h1>
+        </div>
+        <div class="title-container">
+            <h1 class="title">{{ object }}</h1>
         </div>
     </div>
 <div class="content">
@@ -28,7 +40,7 @@
         <P>Картофель, соль, масло</P>
     </div>
     
-    <div class="menu-card menu-title">
+    <!-- <div class="menu-card menu-title">
         <p>Гренки чесночные</p>
         <div class="menu-image-div-grenki"></div>
         <P>Хлеб черный, соль, чеснок, сырный соус</P>
@@ -38,7 +50,7 @@
         <p>Сырные палочки</p>
         <div class="menu-image-div-syr"></div>
         <P>Сыр в панировке со сметанным соусом</P>
-    </div>
+    </div> -->
 
     </div>
 </div>
