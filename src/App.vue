@@ -1,61 +1,102 @@
-<script setup>
+<script setup lang="ts">
 
 // const text = "Самый обычный текст"
 // const chislo = 1 + 1
-const object = {
-    title: "Картошка фри",
-    price: 1000
-} 
+// const object = {
+//     title: "Картошка фри",
+//     price: 1000,
+//     description: "Картофель, соль, масло",
+//     image: "src/assets/Картошка.png"
+// }
 
+const object = [
+    {
+        title: "Картошка фри",
+        price: 1000,
+        description: "Картофель, соль, масло",
+        image: "src/assets/Картошка.png"
+    },
+    {
+        title: "Гренки чесночные",
+        price: 2000,
+        description: "Хлеб черный, соль, чеснок, сырный соус",
+        image: "src/assets/suhari.png"
+    },
+    {
+        title: "Сырные палочки",
+        price: 1000,
+        description: "Сыр в панировке со сметанным соусом",
+        image: "src/assets/palki-from-syr.png"
+    },
+]
+const hotDishes = [
+    {
+        title: "Паста карбонара",
+        price: 5000,
+        description: "Бекон, паста, яйцо, соль, пармезан",
+        image: "src/assets/karbon.jpg"
+
+    },
+    {
+        title: "Чизбургер",
+        price: 10000,
+        description: "Булка, котлета, сыр, кетчуп",
+        image: "src/assets/cheese.jpg"
+    },
+    {
+        title: "Говяжьи щеки с пюре",
+        price: 10000,
+        description: "Щека говяжья, соус деми глясс, картофельное пюре со сливками",
+        image: "src/assets/sheka.jpg"
+    }
+]
 
 </script>
 
 <template>
-<div class="app">
-    <div class="header">
+    <div class="app">
+        <div class="header">
 
-        <div class="title-container">
-            <h1 class="title">LAbar</h1>
+            <div class="title-container">
+                <h1 class="title">LAbar</h1>
+            </div>
         </div>
-        <div class="title-container">
-            <h1 class="title">{{ object }}</h1>
+        <div class="content">
+            <div class="zhopa blur-container">
+                <p>Welcome!</p>
+                <p>A new bar in Krasnoyarsk!</p>
+            </div>
+            <div class="piska title-container">
+                <u>Меню</u>
+            </div>
+            <div class="blur-container " style="margin-bottom: 15px;">
+                <div class="menu-chapter">
+                    <p>Горячие закуски</p>
+                </div>
+                <div style="display: flex;">
+                    <div class="menu-card menu-title" v-for="dish in object">
+                        <p>{{ dish.title }}</p>
+                        <div class="menu-image" :style="{ backgroundImage: `url(${dish.image})` }"></div>
+                        <P>{{ dish.description }}</P>
+                        <P>{{ dish.price + "$" }}</P>
+                    </div>
+                </div>
+            </div>
+            <div class="blur-container">
+                <div class="menu-chapter">
+                    <p>Горячие блюда</p>
+                </div>
+                <div style="display: flex;">
+                    <div class="menu-card menu-title" v-for="dish in hotDishes">
+                        <p>{{ dish.title }}</p>
+                        <div class="menu-image" :style="{ backgroundImage: `url(${dish.image})` }"></div>
+                        <P>{{ dish.description }}</P>
+                        <P>{{ dish.price + "$" }}</P>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-<div class="content">
-<div class="blur-container">
-    <div class="zhopa">
-        <p>Welcome!</p>
-        <p>A new bar in Krasnoyarsk!</p>
-    </div>
-    <div class="piska title-container">
-        <u>Меню</u>
-    </div>
-    <div class="menu-chapter">
-        <p>Горячие закуски</p>
-    </div>
-    <div style="display: flex;">
-    <div class="menu-card menu-title">
-        <p>Картофель фри</p>
-        <img src="https://main-cdn.sbermegamarket.ru/big2/hlr-system/156/552/268/322/721/29/100048560756b1.png" class="menu-image">
-        <P>Картофель, соль, масло</P>
-    </div>
-    
-    <!-- <div class="menu-card menu-title">
-        <p>Гренки чесночные</p>
-        <div class="menu-image-div-grenki"></div>
-        <P>Хлеб черный, соль, чеснок, сырный соус</P>
-    </div>
-
-    <div class="menu-card menu-title">
-        <p>Сырные палочки</p>
-        <div class="menu-image-div-syr"></div>
-        <P>Сыр в панировке со сметанным соусом</P>
-    </div> -->
-
-    </div>
-</div>
-</div>
-</div>
 </template>
 
 <style scoped>
@@ -63,26 +104,28 @@ const object = {
     font-family: BrunoAce;
     src: url(assets/fonts/BrunoAce-Regular.ttf);
 }
-@font-face{
+
+@font-face {
     font-family: rubikmaps;
     src: url(assets/fonts/RubikMaps-Regular.ttf);
 }
-.blur-container{
+
+.blur-container {
     justify-items: center;
     background-color: rgba(255, 255, 255, 0.13);
     backdrop-filter: blur(15px);
-    height: 100%;
     border-radius: 15px;
-
 }
-.menu-image-div-grenki{
+
+.menu-image-div-grenki {
     width: 90%;
     height: 200px;
     background-image: url(assets/suhari.png);
     background-size: cover;
     background-position-x: -18px;
 }
-.menu-image-div-syr{
+
+.menu-image-div-syr {
     width: 90%;
     height: 200px;
     background-image: url(assets/palki-from-syr.png);
@@ -90,17 +133,25 @@ const object = {
     background-position-x: -18px;
 }
 
-.title{
-text-align: center;
-font-size: 5vh;
-font-family: BrunoAce
+.title {
+    text-align: center;
+    font-size: 5vh;
+    font-family: BrunoAce
 }
-.menu-title{
+
+.menu-title {
     font-size: 20px;
     color: rgb(0, 9, 17);
     font-family: rubikmaps;
 }
-.menu-card{
+
+.border {
+    border-style: solid;
+    border-color: rgba(255, 255, 0, 0.441);
+    border-width: 1px;
+}
+
+.menu-card {
     margin: 15px;
     width: 300px;
     min-height: 200px;
@@ -108,12 +159,13 @@ font-family: BrunoAce
     border-radius: 20px;
     justify-items: center;
 }
-.content{
+
+.content {
     width: 100vw;
     justify-items: center;
 }
 
-.app{ 
+.app {
     min-width: 100vw;
     text-align: center;
     background-image: url(assets/4eefe1ab-f162-426a-81ba-51029c7b1bfb.jpg);
@@ -123,46 +175,59 @@ font-family: BrunoAce
     padding: 30px;
     max-height: 100vh;
 }
-.title-container{
+
+.title-container {
     padding: 15px;
     background-color: rgba(201, 201, 191, 0.25);
     backdrop-filter: blur(5px);
     margin-bottom: 20px;
     border-radius: 20px;
-    
+
 }
-.menu-chapter{
+
+
+.menu-chapter {
     font-size: 30px;
     color: rgb(235, 239, 243);
     font-family: rubikmaps;
 }
+
 .menu-image {
-    max-width: 90%;
+    width: 90%;
+    height: 200px;
+    background-size: cover;
 }
-.zhopa{
+
+.zhopa {
     font-size: 4vh;
-    font-family: BrunoAce
+    font-family: BrunoAce;
+
 }
+
 .piska {
     font-family: 'Courier New', Courier, monospace;
     font-size: 3vh;
     width: fit-content;
     transition: 0.3s;
     border-style: solid;
-    border-color: rgba(175, 175, 166, 0.2);
+    border-color: rgba(255, 255, 0, 0.441);
     border-width: 1px;
     font-style: oblique;
 }
-.piska:hover{
+
+.piska:hover {
     scale: 1.1;
     background-color: rgba(201, 201, 191, 0.5);
 }
-.header{
 
-display: flex;
-justify-items: start 
+.header {
+
+    display: flex;
+    justify-items: start
 }
-h1, p{
+
+h1,
+p {
     margin: 0%;
 }
 </style>
