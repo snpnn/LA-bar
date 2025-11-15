@@ -92,7 +92,7 @@ const coldDishes = [
                 <div class="menu-chapter">
                     <p>Горячие закуски</p>
                 </div>
-                <div style="display: flex;">
+                <div style="display: flex">
                     <div class="menu-card menu-title" v-for="dish in object">
                         <p>{{ dish.title }}</p>
                         <div class="menu-image" :style="{ backgroundImage: `url(${dish.image})` }"></div>
@@ -101,7 +101,7 @@ const coldDishes = [
                     </div>
                 </div>
             </div>
-            <div class="blur-container">
+            <div class="blur-container" style="margin-bottom: 15px;">
                 <div class="menu-chapter">
                     <p> Горячие блюда</p>
                 </div>
@@ -111,13 +111,14 @@ const coldDishes = [
                         <div class="menu-image" :style="{ backgroundImage: `url(${dish.image})` }"></div>
                         <P>{{ dish.description }}</P>
                         <P>{{ dish.price + "$" }}</P>
-                    </div>  
                     </div>
-                    <div class="blur-container">
+                </div>
+            </div>
+            <div class="blur-container">
                 <div class="menu-chapter">
                     <p>Холодные блюда</p>
                 </div>
-                <div style="display: flex;">
+                <div style="display: flex; margin-top: 19;">
                     <div class="menu-card menu-title" v-for="dish in coldDishes">
                         <p>{{ dish.title }}</p>
                         <div class="menu-image" :style="{ backgroundImage: `url(${dish.image})` }"></div>
@@ -128,7 +129,6 @@ const coldDishes = [
             </div>
         </div>
     </div>
-</div>
 </template>
 
 <style scoped>
@@ -218,6 +218,7 @@ const coldDishes = [
 
 
 .menu-chapter {
+    margin-top: ;
     font-size: 30px;
     color: rgb(235, 239, 243);
     font-family: rubikmaps;
