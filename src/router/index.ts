@@ -1,5 +1,6 @@
 import MainPage from '@/copmonents/MainPage.vue'
 import MenuPage from '@/copmonents/MenuPage.vue'
+import BarMenuPage from '@/copmonents/BarMenuPage.vue'
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 
 const routes: Array<RouteRecordRaw>=[
@@ -12,6 +13,11 @@ const routes: Array<RouteRecordRaw>=[
     name:'MenuPage',
     path:'/menu',
     component: MenuPage
+  },
+  {
+    name:'BarMenuPage',
+    path:'/barmenu',
+    component: BarMenuPage
   }
 ]
 
