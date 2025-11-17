@@ -5,16 +5,17 @@
                 <p>A new bar in Krasnoyarsk!</p>
             </div>
             <div class="piska title-container cursor" style="margin: 10px;" @click="GoToMenu">
-                <u>Меню кухни</u>
+                <u>KITCHEN MENU</u>
             </div>
             <div class="piska title-container cursor" style="margin: 10px;" @click="GoToBarMenu">
-                <u>Барная карта</u>
+                <u>BAR CARD</u>
             </div>
         </div>
 </template>
 
 <script setup lang="ts">
-import router from '@/router';
+import { useRouter } from 'vue-router';
+const router = useRouter();
 
 
 function GoToMenu(){
@@ -40,7 +41,13 @@ function GoToBarMenu(){
     font-family: Binggrae-Bold;
     src: url(@/assets/fonts/Binggrae-Bold.otf);
 }
-
+@font-face {
+    font-family: Comfortaa-Bold;
+    src: url('@/assets/fonts/Comfortaa-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
 .cursor{
     cursor: pointer;
 }
@@ -72,14 +79,13 @@ function GoToBarMenu(){
 }
 
 .piska {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: BrunoAce;
     font-size: 3vh;
     width: fit-content;
     transition: 0.3s;
     border-style: solid;
-    border-color: rgba(255, 255, 0, 0.441);
+    border-color: rgba(0, 0, 0, 0.441);
     border-width: 1px;
-    font-style: oblique;
 }
 
 .piska:hover {

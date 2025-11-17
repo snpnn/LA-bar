@@ -115,13 +115,13 @@ const coldDishes = [
 .menu-title {
     font-size: 20px;
     color: rgb(0, 9, 17);
-    font-family: rubikmaps;
+    font-family: Comfortaa-Bold !important;
 }
 .menu-card {
     margin: 15px;
     width: 300px;
     min-height: 200px;
-    background-color: aquamarine;
+    background-color: rgb(44, 82, 68);
     border-radius: 20px;
     justify-items: center;
 }
@@ -129,7 +129,7 @@ const coldDishes = [
     margin-top: ;
     font-size: 30px;
     color: rgb(235, 239, 243);
-    font-family: rubikmaps;
+    font-family: Comfortaa-Bold !important;
 }
 .menu-image {
     width: 90%;
