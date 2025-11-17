@@ -1,19 +1,30 @@
 <template>
-        <div class="header">
-            <div class="title-container">
-                <h1 class="title">LAbar</h1>
-            </div>
-        </div>
         <div class="content">
             <div class="zhopa blur-container">
                 <p>Welcome!</p>
                 <p>A new bar in Krasnoyarsk!</p>
             </div>
-            <div class="piska title-container">
-                <u>Меню</u>
+            <div class="piska title-container cursor" style="margin: 10px;" @click="GoToMenu">
+                <u>Меню кухни</u>
+            </div>
+            <div class="piska title-container cursor" style="margin: 10px;" @click="GoToBarMenu">
+                <u>Барная карта</u>
             </div>
         </div>
 </template>
+
+<script setup lang="ts">
+import router from '@/router';
+
+
+function GoToMenu(){
+    router.push('/menu')
+}
+function GoToBarMenu(){
+    router.push('/barmenu')
+}
+
+</script>
 
 <style scoped>
 @font-face {
@@ -25,33 +36,14 @@
     font-family: rubikmaps;
     src: url(@/assets/fonts/RubikMaps-Regular.ttf);
 }
-
-
-
-
-
-.title {
-    text-align: center;
-    font-size: 5vh;
-    font-family: BrunoAce
+@font-face {
+    font-family: Binggrae-Bold;
+    src: url(@/assets/fonts/Binggrae-Bold.otf);
 }
 
-
-
-.border {
-    border-style: solid;
-    border-color: rgba(255, 255, 0, 0.441);
-    border-width: 1px;
+.cursor{
+    cursor: pointer;
 }
-
-
-
-.content {
-    width: 100vw;
-    justify-items: center;
-}
-
-
 
 .title-container {
     padding: 15px;
@@ -62,6 +54,16 @@
 
 }
 
+.border {
+    border-style: solid;
+    border-color: rgba(255, 255, 0, 0.441);
+    border-width: 1px;
+}
+
+.content {
+    width: 100vw;
+    justify-items: center;
+}
 
 .zhopa {
     font-size: 4vh;

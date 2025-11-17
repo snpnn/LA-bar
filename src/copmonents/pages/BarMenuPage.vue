@@ -1,10 +1,10 @@
 <template>
     <div class="blur-container " style="margin-bottom: 15px;">
-        <div class="barmenu-chapter">
-            <p>Коктейли</p>
+        <div class="barmenu-chapter barmenu-title fontsize" >
+            <p class="barmenu-title fontsize-40">Коктейли</p>
         </div>
         <div style="display: flex">
-            <div class="barmenu-card barmenu-title" v-for="dish in object">
+            <div class="barmenu-card barmenu-title fontsize-20" v-for="dish in object">
                 <p>{{ dish.title }}</p>
                 <div class="menu-image" :style="{ backgroundImage: `url(${dish.image})` }"></div>
                 <P>{{ dish.description }}</P>
@@ -36,6 +36,14 @@ const object = [
 ]
 </script>
 <style>
+
+.fontsize-40{
+    font-size: 40px;
+}
+.fontsize-20{
+    font-size: 20px;
+}
+
 .blur-container {
     justify-items: center;
     background-color: rgba(255, 255, 255, 0.13);
@@ -44,9 +52,10 @@ const object = [
     width: fit-content;
 }
 .barmenu-title {
-    font-size: 20px;
     color: rgb (70, 130, 180);
-    font-family: Binggrae;
+    font-family: Binggrae-Bold;
+    margin: 0px;
+    color: rgb(70, 130, 180);
 }
 .barmenu-card {
     margin: 15px;
@@ -57,9 +66,8 @@ const object = [
     justify-items: center;
 }
 .barmenu-chapter {
-    margin-top: ;
     font-size: 30px;
-    color: rgb(70, 130, 180));
+    color: rgb(70, 130, 180);
     font-family: Binggrae;
 }
 .menu-image {
@@ -67,5 +75,6 @@ const object = [
     height: 200px;
     background-size: cover;
     background-position: center;
+    border-radius: 20px;
 }
 </style>
