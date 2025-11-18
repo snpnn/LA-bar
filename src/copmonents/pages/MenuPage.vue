@@ -1,9 +1,9 @@
 <template>
     <div class="blur-container " style="margin-bottom: 15px;">
-        <div class="menu-chapter">
-            <p>Горячие закуски</p>
+        <div class="menu-chapter" @click="ValueObjects">
+            <p class="cursor">Горячие закуски</p>
         </div>
-        <div style="display: flex">
+        <div v-if="enableObjects" style="display: flex">
             <div class="menu-card menu-title" v-for="dish in object">
                 <p>{{ dish.title }}</p>
                 <div class="menu-image" :style="{ backgroundImage: `url(${dish.image})` }"></div>
@@ -13,10 +13,12 @@
         </div>
     </div>
     <div class="blur-container" style="margin-bottom: 15px;">
-        <div class="menu-chapter">
-            <p> Горячие блюда</p>
+
+
+        <div class="menu-chapter" @click="ValueHotDishes">
+            <p class="cursor"> Горячие блюда </p>
         </div>
-        <div style="display: flex;">
+        <div v-if="enableHotDishes" style="display: flex;">
             <div class="menu-card menu-title" v-for="dish in hotDishes">
                 <p>{{ dish.title }}</p>
                 <div class="menu-image" :style="{ backgroundImage: `url(${dish.image})` }"></div>
@@ -24,12 +26,15 @@
                 <P>{{ dish.price + "$" }}</P>
             </div>
         </div>
+
+
+
     </div>
     <div class="blur-container">
-        <div class="menu-chapter">
-            <p>Холодные блюда</p>
+        <div class="menu-chapter" @click="ValueColdDishes">
+            <p class="cursor">Холодные блюда</p>
         </div>
-        <div style="display: flex; margin-top: 19;">
+        <div v-if="enableColdDishes" style="display: flex; margin-top: 19;">
             <div class="menu-card menu-title" v-for="dish in coldDishes">
                 <p>{{ dish.title }}</p>
                 <div class="menu-image" :style="{ backgroundImage: `url(${dish.image})` }"></div>
@@ -41,6 +46,29 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
+
+// const число = 1 
+// const строка = "вывывывы"
+// const обьект = {}
+// const массив = [{},{},{},{},{}]
+// const булево = правда/ложь
+
+function ValueColdDishes() {
+    enableColdDishes.value = !enableColdDishes.value
+}
+function ValueHotDishes() {
+    enableHotDishes.value = !enableHotDishes.value
+}
+function ValueObjects() {
+    enableObjects.value = !enableObjects.value
+}
+
+
+
+const enableColdDishes = ref<Boolean>(false)
+const enableHotDishes = ref<Boolean>(false)
+const enableObjects = ref<Boolean>(false)
 const object = [
     {
         title: "Картошка фри",
@@ -104,19 +132,32 @@ const coldDishes = [
     }
 ]
 </script>
-<style>
+<style scoped>
+@font-face {
+    font-family: Comfortaa-Regular;
+    src: url('../../assets/fonts/Comfortaa-Regular.ttf');
+}
+
+.cursor{
+    cursor: pointer;
+}
+
 .blur-container {
     justify-items: center;
     background-color: rgba(255, 255, 255, 0.13);
     backdrop-filter: blur(15px);
     border-radius: 15px;
     width: fit-content;
+    transition: 1s;
 }
+
 .menu-title {
     font-size: 20px;
     color: rgb(0, 9, 17);
-    font-family: Comfortaa-Bold !important;
+    font-family: Comfortaa-Regular;
+    font-weight: 900;
 }
+
 .menu-card {
     margin: 15px;
     width: 300px;
@@ -125,12 +166,15 @@ const coldDishes = [
     border-radius: 20px;
     justify-items: center;
 }
+
 .menu-chapter {
     margin-top: ;
     font-size: 30px;
     color: rgb(235, 239, 243);
-    font-family: Comfortaa-Bold !important;
+    font-family: Comfortaa-Regular;
+    user-select: none;
 }
+
 .menu-image {
     width: 90%;
     height: 200px;

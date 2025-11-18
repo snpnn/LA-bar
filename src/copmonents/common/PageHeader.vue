@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-        <div class="piska title-container cursor" style="margin: 10px;" @click="GoBackHome">
+        <div class="piska  title-container cursor" style="margin: 10px;" @click="GoBackHome">
             <h1 class="title">LAbar</h1>
         </div>
     </div>
@@ -24,6 +24,11 @@ function GoBackHome(){
     border-color: rgba(0, 0, 0, 0.441);
     border-width: 1px;
 }
+.piska:hover {
+    scale: 1.1;
+    background-color: rgba(201, 201, 191, 0.5);
+}
+
 .title-container {
     padding: 15px;
     background-color: rgba(201, 201, 191, 0.25);

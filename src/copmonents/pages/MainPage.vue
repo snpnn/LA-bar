@@ -41,13 +41,7 @@ function GoToBarMenu(){
     font-family: Binggrae-Bold;
     src: url(@/assets/fonts/Binggrae-Bold.otf);
 }
-@font-face {
-    font-family: Comfortaa-Bold;
-    src: url('@/assets/fonts/Comfortaa-Bold.otf') format('opentype');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
+
 .cursor{
     cursor: pointer;
 }
