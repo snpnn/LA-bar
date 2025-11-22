@@ -13,6 +13,7 @@ import PageHeader from './copmonents/common/PageHeader.vue';
 <div class="app">
 <PageHeader/>
 <RouterView/>
+
 </div>
 
 </template>

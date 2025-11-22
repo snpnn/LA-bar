@@ -3,50 +3,51 @@
         <div class="menu-chapter" @click="ValueObjects">
             <p class="cursor">Горячие закуски</p>
         </div>
-        <div v-if="enableObjects" style="display: flex">
-            <div class="menu-card menu-title" v-for="dish in object">
-                <p>{{ dish.title }}</p>
-                <div class="menu-image" :style="{ backgroundImage: `url(${dish.image})` }"></div>
-                <P>{{ dish.description }}</P>
-                <P>{{ dish.price + "$" }}</P>
-            </div>
+
+        <div style="display: flex;">
+            <MenuCardComponent  
+            :title="dish.title" 
+            :price="dish.price"
+            :description="dish.description"
+            :image="dish.image"
+            v-for="dish in object" 
+            />
         </div>
+
     </div>
+
     <div class="blur-container" style="margin-bottom: 15px;">
-
-
         <div class="menu-chapter" @click="ValueHotDishes">
             <p class="cursor"> Горячие блюда </p>
         </div>
-        <div v-if="enableHotDishes" style="display: flex;">
-            <div class="menu-card menu-title" v-for="dish in hotDishes">
-                <p>{{ dish.title }}</p>
-                <div class="menu-image" :style="{ backgroundImage: `url(${dish.image})` }"></div>
-                <P>{{ dish.description }}</P>
-                <P>{{ dish.price + "$" }}</P>
-            </div>
+         <div style="display: flex;">
+            <MenuCardComponent
+            :description="dish.description" 
+            :title="dish.title" 
+            :price="dish.price"
+            :image="dish.image"
+            v-for="dish in hotDishes" />
         </div>
-
-
-
     </div>
+
     <div class="blur-container">
         <div class="menu-chapter" @click="ValueColdDishes">
             <p class="cursor">Холодные блюда</p>
         </div>
-        <div v-if="enableColdDishes" style="display: flex; margin-top: 19;">
-            <div class="menu-card menu-title" v-for="dish in coldDishes">
-                <p>{{ dish.title }}</p>
-                <div class="menu-image" :style="{ backgroundImage: `url(${dish.image})` }"></div>
-                <P>{{ dish.description }}</P>
-                <P>{{ dish.price + "$" }}</P>
-            </div>
+         <div style="display: flex;">
+            <MenuCardComponent 
+            :title="dish.title" 
+            :price="dish.price"
+            :image="dish.image"
+            :description="dish.description"
+            v-for="dish in coldDishes" />
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import MenuCardComponent from '../common/MenuCardComponent.vue'
 
 // const число = 1 
 // const строка = "вывывывы"
@@ -138,7 +139,7 @@ const coldDishes = [
     src: url('../../assets/fonts/Comfortaa-Regular.ttf');
 }
 
-.cursor{
+.cursor {
     cursor: pointer;
 }
 
@@ -151,21 +152,7 @@ const coldDishes = [
     transition: 1s;
 }
 
-.menu-title {
-    font-size: 20px;
-    color: rgb(0, 9, 17);
-    font-family: Comfortaa-Regular;
-    font-weight: 900;
-}
 
-.menu-card {
-    margin: 15px;
-    width: 300px;
-    min-height: 200px;
-    background-color: rgb(44, 82, 68);
-    border-radius: 20px;
-    justify-items: center;
-}
 
 .menu-chapter {
     margin-top: ;
@@ -173,12 +160,5 @@ const coldDishes = [
     color: rgb(235, 239, 243);
     font-family: Comfortaa-Regular;
     user-select: none;
-}
-
-.menu-image {
-    width: 90%;
-    height: 200px;
-    background-size: cover;
-    background-position: center;
 }
 </style>
