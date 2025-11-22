@@ -3,17 +3,25 @@
         <div class="barmenu-chapter barmenu-title fontsize" >
             <p class="barmenu-title fontsize-40">Коктейли</p>
         </div>
-        <div style="display: flex">
-            <div class="barmenu-card barmenu-title fontsize-20" v-for="dish in object">
-                <p>{{ dish.title }}</p>
-                <div class="menu-image" :style="{ backgroundImage: `url(${dish.image})` }"></div>
-                <P>{{ dish.description }}</P>
-                <P>{{ dish.price + "$" }}</P>
-            </div>
+        <div style="display: flex;">
+            <BarMenuCardComponents  
+            :title="dish.title" 
+            :price="dish.price"
+            :description="dish.description"
+            :image="dish.image"
+            v-for="dish in object" 
+            v-if="enableObjects === true"
+            />
         </div>
     </div>
     </template>
 <script setup lang="ts">
+import { ref } from 'vue';
+import BarMenuCardComponents from '../common/BarMenuCardComponents.vue';
+function ValueObjects() {
+    enableObjects.value = !enableObjects.value
+}
+const enableObjects = ref<Boolean>(false)
 const object = [
     {
         title: "Кровавая Мэри",
@@ -51,30 +59,12 @@ const object = [
     border-radius: 15px;
     width: fit-content;
 }
-.barmenu-title {
-    color: rgb (70, 130, 180);
-    font-family: Binggrae-Bold;
-    margin: 0px;
-    color: rgb(70, 130, 180);
-}
-.barmenu-card {
-    margin: 15px;
-    width: 300px;
-    min-height: 200px;
-    background-color: red;
-    border-radius: 20px;
-    justify-items: center;
-}
+
+
 .barmenu-chapter {
     font-size: 30px;
     color: rgb(70, 130, 180);
     font-family: Binggrae;
 }
-.menu-image {
-    width: 90%;
-    height: 200px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 20px;
-}
+
 </style>

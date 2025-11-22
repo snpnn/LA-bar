@@ -1,7 +1,7 @@
 <template>
     <div class="blur-container " style="margin-bottom: 15px;">
         <div class="menu-chapter" @click="ValueObjects">
-            <p class="cursor">Горячие закуски</p>
+            <p class="cursor ma-0">Горячие закуски</p>
         </div>
 
         <div style="display: flex;">
@@ -11,14 +11,14 @@
             :description="dish.description"
             :image="dish.image"
             v-for="dish in object" 
+            v-if="enableObjects === true"
             />
         </div>
-
     </div>
 
     <div class="blur-container" style="margin-bottom: 15px;">
         <div class="menu-chapter" @click="ValueHotDishes">
-            <p class="cursor"> Горячие блюда </p>
+            <p class="cursor ma-0"> Горячие блюда </p>
         </div>
          <div style="display: flex;">
             <MenuCardComponent
@@ -26,13 +26,16 @@
             :title="dish.title" 
             :price="dish.price"
             :image="dish.image"
-            v-for="dish in hotDishes" />
+            v-for="dish in hotDishes"
+            v-if="enableHotDishes === true"
+             />
+            
         </div>
     </div>
 
     <div class="blur-container">
         <div class="menu-chapter" @click="ValueColdDishes">
-            <p class="cursor">Холодные блюда</p>
+            <p class="cursor ma-0">Холодные блюда</p>
         </div>
          <div style="display: flex;">
             <MenuCardComponent 
@@ -40,7 +43,9 @@
             :price="dish.price"
             :image="dish.image"
             :description="dish.description"
-            v-for="dish in coldDishes" />
+            v-for="dish in coldDishes" 
+            v-if="enableColdDishes === true"
+            />
         </div>
     </div>
 </template>
@@ -152,7 +157,9 @@ const coldDishes = [
     transition: 1s;
 }
 
-
+.ma-0{
+    margin: 0%
+}
 
 .menu-chapter {
     margin-top: ;
