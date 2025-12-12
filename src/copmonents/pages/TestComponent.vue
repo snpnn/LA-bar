@@ -40,7 +40,7 @@ function togleValue() {
         setTimeout(() => {
             OpenedCard.value = !OpenedCard.value
         }, 330)
-        
+
     }
 }
 
@@ -49,6 +49,15 @@ function togleValue() {
 
 
 <style>
+.blur-container {
+    justify-items: center;
+    background-color: rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    width: fit-content;
+    transition: 1s;
+}
+
 .main-card {
     width: 400px;
     height: 50px;

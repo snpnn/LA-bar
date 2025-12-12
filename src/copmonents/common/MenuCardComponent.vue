@@ -36,6 +36,14 @@ const props = defineProps({
 
 
 <style scoped>
+p{
+    margin: 5px;
+    font-size: 20px;
+    background-color: rgb(75, 136, 114);
+    border-radius: 10px;
+padding: 5px;
+}
+
 .menu-title {
     font-size: 20px;
     color: rgb(0, 9, 17);

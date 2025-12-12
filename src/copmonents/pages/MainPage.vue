@@ -46,6 +46,14 @@ function GoToBarMenu(){
     cursor: pointer;
 }
 
+.blur-container {
+    justify-items: center;
+    background-color: rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    width: fit-content;
+}
+
 .title-container {
     padding: 15px;
     background-color: rgba(201, 201, 191, 0.25);

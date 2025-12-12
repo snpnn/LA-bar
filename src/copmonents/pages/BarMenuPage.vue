@@ -1,7 +1,7 @@
 <template>
     <div class="blur-container " style="margin-bottom: 15px;">
-        <div class="barmenu-chapter barmenu-title fontsize" >
-            <p class="barmenu-title fontsize-40">Коктейли</p>
+        <div class="barmenu-chapter barmenu-title fontsize"  >
+            <p class="barmenu-title fontsize-40" @click="ValueObjects">Коктейли</p>
         </div>
         <div style="display: flex;">
             <BarMenuCardComponents  
@@ -18,10 +18,12 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import BarMenuCardComponents from '../common/BarMenuCardComponents.vue';
+
+const enableObjects = ref<Boolean>(false)
 function ValueObjects() {
     enableObjects.value = !enableObjects.value
 }
-const enableObjects = ref<Boolean>(false)
+
 const object = [
     {
         title: "Кровавая Мэри",
@@ -43,7 +45,20 @@ const object = [
     },
 ]
 </script>
-<style>
+<style scoped>
+    p {
+    margin: 5px;
+    font-size: 20px;
+    background-color: rgb(75, 136, 114);
+    border-radius: 10px;
+    padding: 5px;
+}
+.barmenu-title {
+    font-size: 20px;
+    color: rgb(0, 9, 17);
+    font-family: Comfortaa-Regular;
+    font-weight: 900;
+}
 
 .fontsize-40{
     font-size: 40px;

@@ -1,18 +1,12 @@
 <template>
-    <div class="blur-container " style="margin-bottom: 15px;">
+    <div class="blur-container " style="margin-bottom: 15px;" :class="{ expanded: OpenedCard }">
         <div class="menu-chapter" @click="ValueObjects">
             <p class="cursor ma-0">Горячие закуски</p>
         </div>
 
-        <div style="display: flex;">
-            <MenuCardComponent  
-            :title="dish.title" 
-            :price="dish.price"
-            :description="dish.description"
-            :image="dish.image"
-            v-for="dish in object" 
-            v-if="enableObjects === true"
-            />
+        <div class="cards" :class="{ expanded: OpacityDescription }" style="display: flex;">
+            <MenuCardComponent :title="dish.title" :price="dish.price" :description="dish.description"
+                :image="dish.image" v-for="dish in object" v-if="enableDescription" />
         </div>
     </div>
 
@@ -20,16 +14,10 @@
         <div class="menu-chapter" @click="ValueHotDishes">
             <p class="cursor ma-0"> Горячие блюда </p>
         </div>
-         <div style="display: flex;">
-            <MenuCardComponent
-            :description="dish.description" 
-            :title="dish.title" 
-            :price="dish.price"
-            :image="dish.image"
-            v-for="dish in hotDishes"
-            v-if="enableHotDishes === true"
-             />
-            
+        <div style="display: flex;">
+            <MenuCardComponent :description="dish.description" :title="dish.title" :price="dish.price"
+                :image="dish.image" v-for="dish in hotDishes" v-if="enableHotDishes === true" />
+
         </div>
     </div>
 
@@ -37,15 +25,9 @@
         <div class="menu-chapter" @click="ValueColdDishes">
             <p class="cursor ma-0">Холодные блюда</p>
         </div>
-         <div style="display: flex;">
-            <MenuCardComponent 
-            :title="dish.title" 
-            :price="dish.price"
-            :image="dish.image"
-            :description="dish.description"
-            v-for="dish in coldDishes" 
-            v-if="enableColdDishes === true"
-            />
+        <div style="display: flex;">
+            <MenuCardComponent :title="dish.title" :price="dish.price" :image="dish.image"
+                :description="dish.description" v-for="dish in coldDishes" v-if="enableColdDishes === true" />
         </div>
     </div>
 </template>
@@ -59,15 +41,31 @@ import MenuCardComponent from '../common/MenuCardComponent.vue'
 // const обьект = {}
 // const массив = [{},{},{},{},{}]
 // const булево = правда/ложь
+const OpenedCard = ref(false)
+const enableDescription = ref(false)
+const OpacityDescription = ref(false)
 
-function ValueColdDishes() {
-    enableColdDishes.value = !enableColdDishes.value
-}
-function ValueHotDishes() {
-    enableHotDishes.value = !enableHotDishes.value
-}
 function ValueObjects() {
-    enableObjects.value = !enableObjects.value
+
+    if (OpenedCard.value == false) {
+        // Открытие
+        OpenedCard.value = !OpenedCard.value
+        setTimeout(() => {
+            enableDescription.value = !enableDescription.value
+        }, 1000)
+        setTimeout(() => {
+            OpacityDescription.value = !OpacityDescription.value
+        }, 1030)
+    } else {
+        OpacityDescription.value = !OpacityDescription.value
+        setTimeout(() => {
+            enableDescription.value = !enableDescription.value
+        }, 300)
+        setTimeout(() => {
+            OpenedCard.value = !OpenedCard.value
+        }, 330)
+
+    }
 }
 
 
@@ -144,6 +142,15 @@ const coldDishes = [
     src: url('../../assets/fonts/Comfortaa-Regular.ttf');
 }
 
+.cards{
+    opacity: 0;
+    transition: 0.3s;
+}
+.cards.expanded{
+    opacity: 1;
+
+}
+
 .cursor {
     cursor: pointer;
 }
@@ -153,11 +160,17 @@ const coldDishes = [
     background-color: rgba(255, 255, 255, 0.13);
     backdrop-filter: blur(15px);
     border-radius: 15px;
-    width: fit-content;
+    width: 600px;
     transition: 1s;
+    height: 44px;
 }
 
-.ma-0{
+.blur-container.expanded {
+    height: 450px;
+    width: 1000px;
+}
+
+.ma-0 {
     margin: 0%
 }
 
