@@ -1,0 +1,108 @@
+<template>
+        <div class="content">
+            <div class="zhopa blur-container">
+                <p>Welcome!</p>
+                <p>A new bar in Krasnoyarsk!</p>
+            </div>
+            <div class="piska title-container cursor" style="margin: 10px;" @click="GoToMenu">
+                <u>KITCHEN MENU</u>
+            </div>
+            <div class="piska title-container cursor" style="margin: 10px;" @click="GoToBarMenu">
+                <u>BAR CARD</u>
+            </div>
+        </div>
+</template>
+
+<script setup lang="ts">
+import { useRouter } from 'vue-router';
+const router = useRouter();
+
+
+function GoToMenu(){
+    router.push('/menu')
+}
+function GoToBarMenu(){
+    router.push('/barmenu')
+}
+
+</script>
+
+<style scoped>
+@font-face {
+    font-family: BrunoAce;
+    src: url(@/assets/fonts/BrunoAce-Regular.ttf);
+}
+
+@font-face {
+    font-family: rubikmaps;
+    src: url(@/assets/fonts/RubikMaps-Regular.ttf);
+}
+@font-face {
+    font-family: Binggrae-Bold;
+    src: url(@/assets/fonts/Binggrae-Bold.otf);
+}
+
+.cursor{
+    cursor: pointer;
+}
+
+.blur-container {
+    justify-items: center;
+    background-color: rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    width: fit-content;
+}
+
+.title-container {
+    padding: 15px;
+    background-color: rgba(201, 201, 191, 0.25);
+    backdrop-filter: blur(5px);
+    margin-bottom: 20px;
+    border-radius: 20px;
+
+}
+
+.border {
+    border-style: solid;
+    border-color: rgba(255, 255, 0, 0.441);
+    border-width: 1px;
+}
+
+.content {
+    width: 100vw;
+    justify-items: center;
+}
+
+.zhopa {
+    font-size: 4vh;
+    font-family: BrunoAce;
+
+}
+
+.piska {
+    font-family: BrunoAce;
+    font-size: 3vh;
+    width: fit-content;
+    transition: 0.3s;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.441);
+    border-width: 1px;
+}
+
+.piska:hover {
+    scale: 1.1;
+    background-color: rgba(201, 201, 191, 0.5);
+}
+
+.header {
+
+    display: flex;
+    justify-items: start
+}
+
+h1,
+p {
+    margin: 0%;
+}
+</style>
