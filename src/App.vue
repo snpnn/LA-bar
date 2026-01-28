@@ -29,6 +29,7 @@ import PageHeader from './copmonents/common/PageHeader.vue';
     background-position: fixed;
     background-attachment: fixed;
     padding: 30px;
+    max-height: 100vh;
 }
 
 </style>
